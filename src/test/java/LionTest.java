@@ -18,21 +18,21 @@ public class LionTest {
     Feline feline;
 
     @Test
-    public void getKittens_expectedKittensCount() throws Exception {
+    public void getKittensExpectedKittensCount() throws Exception {
         Lion lion = new Lion(sex, feline);
         lion.getKittens();
         verify(feline, times(1)).getKittens();
     }
 
     @Test
-    public void getFood_predator() throws Exception {
+    public void getFoodPredator() throws Exception {
         Lion lion = new Lion(sex, feline);
         lion.getFood();
         verify(feline, times(1)).eatMeat();
     }
 
     @Test
-    public void generateLion_Exception () throws Exception {
+    public void generateLionException () throws Exception {
         Assert.assertThrows(Exception.class, () -> new Lion(sex.toLowerCase(), feline));
     }
 }

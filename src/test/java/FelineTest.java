@@ -14,34 +14,31 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
 
-    @Mock
-    Animal animal;
-
     @Spy
     Feline extendsAnimal;
 
     @Test
-    public void eatMeat_success() throws Exception {
+    public void eatMeatSuccess() throws Exception {
         extendsAnimal.eatMeat();
         verify(extendsAnimal, times(1)).getFood("Хищник");
     }
 
     @Test
-    public void getFamily_feline() {
+    public void getFamilyFeline() {
         String exceptionFeline = "Кошачьи";
         Feline feline = new Feline();
         assertEquals("Ожидаем семейство кашачьи", exceptionFeline, feline.getFamily());
     }
 
     @Test
-    public void getKittens_one() throws Exception {
+    public void getKittensOne() {
         int exceptionKittensCount = 1;
         Feline feline = new Feline();
         assertEquals("Ожидаем одного котенка", exceptionKittensCount, feline.getKittens());
     }
 
     @Test
-    public void getKittens_moreOne() throws Exception {
+    public void getKittensMoreOne() {
         int exceptionKittensCount = 5;
         Feline feline = new Feline();
         assertEquals("Ожидаем пять котят", exceptionKittensCount, feline.getKittens(5));

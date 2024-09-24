@@ -16,14 +16,14 @@ public class CatTest {
     Feline feline;
 
     @Test
-    public void getSound_Meow() {
+    public void getSoundMeow() {
         Cat cat = new Cat(feline);
         String expectedSoundMeow = "Мяу";
         Assert.assertEquals("Ожидаем другой звук от кошки", expectedSoundMeow, cat.getSound());
     }
 
     @Test
-    public void getFood_predator() throws Exception {
+    public void getFoodPredator() throws Exception {
         Cat cat = new Cat(feline);
         cat.getFood();
         verify(feline, times(1)).eatMeat();
