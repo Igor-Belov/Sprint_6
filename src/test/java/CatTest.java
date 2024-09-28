@@ -1,10 +1,15 @@
 import com.example.Cat;
 import com.example.Feline;
+import com.example.Predator;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import java.lang.reflect.Array;
+import java.util.List;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -27,5 +32,13 @@ public class CatTest {
         Cat cat = new Cat(feline);
         cat.getFood();
         verify(feline, times(1)).eatMeat();
+    }
+
+    @Test
+    public void getFoodName() throws Exception {
+        List expectedfood = List.of("Животные", "Птицы", "Рыба");
+        Cat cat = new Cat(feline);
+        Mockito.when(feline.eatMeat()).thenReturn(expectedfood);
+        Assert.assertEquals("Ожидаем другую еду для котиков", expectedfood, cat.getFood());
     }
 }
